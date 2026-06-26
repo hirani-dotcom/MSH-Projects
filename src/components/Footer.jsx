@@ -1,11 +1,69 @@
-import React from "react";
-import MSH from '../assets/MSH Logo.ico';
+import React, { useEffect, useState } from "react";
+import MSH from "../assets/MSH Logo.ico";
+import Resume from '../assets/FES Resume MSH.pdf';
 
 const Footer = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    function toggleModal() {
+        setIsModalOpen((prev) => !prev);
+    }
+
+    // Side effect: add/remove class on body when modal changes
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.classList.add("modal--open");
+        } else {
+            document.body.classList.remove("modal--open");
+        }
+
+        // Cleanup on unmount
+        return () => document.body.classList.remove("modal--open");
+    }, [isModalOpen]);
 
     return (
-        <div>
-            
+        <div className="footer__container">
+            <footer>
+                <div className="row footer__row">
+                    <figure className="footer__logo--wrapper">
+                        <img src={MSH} className="footer__logo--img" />
+                    </figure>
+                    <div className="footer__social--list">
+                        <a
+                            href="https://www.GitHub.com"
+                            target="_blank"
+                            className="footer__social--link link__hover-effect link__hover-effect--white"
+                        >
+                            GitHub
+                        </a>
+                        <a
+                            href="https://linkedIn.com"
+                            target="_blank"
+                            className="footer__social--link link__hover-effect link__hover-effect--white"
+                        >
+                            LinkedIn
+                        </a>
+                        <button
+                            href="/"
+                            className="footer__social--link link__hover-effect link__hover-effect--white"
+                            onClick={toggleModal}
+                        >
+                            Contact
+                        </button>
+                        <a
+                            href={Resume}
+                            target="_blank"
+                            className="footer__social--link link__hover-effect link__hover-effect--white"
+                            download
+                        >
+                            Resume
+                        </a>
+                    </div>
+                    <div className="footer__copyright">
+                        Copyright © 2026 Manji S Hirani
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };
