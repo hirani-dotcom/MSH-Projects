@@ -4,6 +4,13 @@ import Me from "../assets/MSH-Sketch.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
+
+     const navigate = useNavigate();
+    
+        const toProjects = () => {
+            navigate("/projects");
+        };
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     function toggleModal() {
@@ -33,18 +40,17 @@ const Nav = () => {
                         <a
                             href="/"
                             className="nav__link--anchor link__hover-effect link__hover-effect--black"
-                            // onClick={toggleModal}
                         >
                             About
                         </a>
                     </li>
                     <li className="nav__link click">
-                        <a
-                            href="/projects"
-                            className="nav__link--anchor link__hover-effect link__hover-effect--black"
+                        <button
+                            href="/"
+                            className="nav__link--anchor link__hover-effect link__hover-effect--black" onClick={toProjects}
                         >
                             Projects
-                        </a>
+                        </button>
                     </li>
                     <li className="nav__link click">
                         <button
