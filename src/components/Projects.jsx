@@ -79,7 +79,7 @@ const Projects = () => {
 
     return (
         <div>
-            <section id="projects">
+            <section id="/projects">
                 <div className="container">
                     <div className="row">
                         <div className="projects__summary">
