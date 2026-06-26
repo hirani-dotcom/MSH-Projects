@@ -5,21 +5,9 @@ import Netflix from "../assets/netflix-clone.png";
 import Spotify from "../assets/spotify-clone.png";
 import ProjSpotify from "./ProjMovies";
 import Library from "../assets/library-app.png";
-import {
-    faGithub,
-    faLinkedinIn,
-    faHtml5,
-    faCss3,
-    faJava,
-    faReact,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedinIn, faHtml5, faCss3, faJava, faReact, } from "@fortawesome/free-brands-svg-icons";
 import { faFilePdf, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import {
-    faAt,
-    faTimes,
-    faSpinner,
-    faLink,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAt, faTimes, faSpinner, faLink, } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
@@ -74,19 +62,19 @@ const Projects = () => {
     const navigate = useNavigate();
 
     const toMovies = () => {
-        navigate = "/movies";
+        navigate("/movies");
     };
 
     const toSpotify = () => {
-        navigate = "/spotify";
+        navigate("/spotify");
     };
 
     const toNetflix = () => {
-        navigate = "/netflix";
+        navigate("/netflix");
     };
 
     const toLibrary = () => {
-        navigate = "/library";
+        navigate("/library");
     };
 
     return (
