@@ -3,8 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Spotify from "../assets/spotify-clone.png";
 import { faLink, faSpinner, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faCss3, faHtml5, faJava, faReact } from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const ProjSpotify = () => {
+
+    const navigate = useNavigate();
+
+    const toProjects = () => {
+        navigate('/projects')
+    }
+
     
         function contact(event) {
             // Component state for modal visibility
@@ -63,6 +71,11 @@ const ProjSpotify = () => {
                         <div className="project__wrapper--bg"></div>
                         <img src={Spotify} alt="" className="project__img" />
                         <div className="project__description">
+                                                         <FontAwesomeIcon
+                                                                                icon={faTimes}
+                                                                                className="modal__exit click"
+                                                                                onClick={toProjects}
+                                                                            />
                             <h3 className="project__description--title">
                                 Clone of Spotify App
                             </h3>
