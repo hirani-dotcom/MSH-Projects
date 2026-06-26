@@ -510,10 +510,10 @@ MODAL
 
 .modal__exit {
     position: absolute;
-    top: 50px;
+    top: 15px;
     right: 20px;
     color: white;
-    z-index: -0;
+    z-index: 0;
 }
 
 /* 
@@ -521,6 +521,11 @@ MODAL
 PROJECTS
 
 */
+
+.project {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 .section__title {
     text-align: center;
@@ -591,13 +596,20 @@ PROJECTS
     box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
     overflow: hidden;
     height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     z-index: 0;
 }
 
 .project__description {
     position: absolute;
     top: 50%;
-    left: 90px;
+    /* left: 155px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     transform: translateY(100%);
     opacity: 0;
     transition:
@@ -605,6 +617,7 @@ PROJECTS
         transform 600ms ease;
     color: white;
     max-width: 550px;
+    text-align: center;
     z-index: 2;
 }
 

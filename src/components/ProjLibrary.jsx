@@ -12,12 +12,11 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const ProjLibrary = () => {
-
     const navigate = useNavigate();
 
     const toProjects = () => {
-        navigate('/projects')
-    }
+        navigate("/projects");
+    };
 
     function contact(event) {
         // Component state for modal visibility
@@ -80,11 +79,11 @@ const ProjLibrary = () => {
                                 className="project__img"
                             />
                             <div className="project__description">
-                                 <FontAwesomeIcon
-                                                        icon={faTimes}
-                                                        className="modal__exit click"
-                                                        onClick={toProjects}
-                                                    />
+                                <FontAwesomeIcon
+                                    icon={faTimes}
+                                    className="modal__exit click"
+                                    onClick={toProjects}
+                                />
                                 <h3 className="project__description--title">
                                     Online Library App
                                 </h3>
