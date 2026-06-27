@@ -9,7 +9,11 @@ import {
     faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import { faFilePdf } from "@fortawesome/free-regular-svg-icons";
-import { faTimes, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+    faTimes,
+    faSpinner,
+    faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import Circle from "../assets/circle.svg";
 import SemiCircle from "../assets/semi circle.svg";
 import Squiggly from "../assets/squiggly.svg";
@@ -86,7 +90,6 @@ const Header = () => {
     }, [isModalOpen]);
 
     const toggleModal = () => setIsModalOpen((prev) => !prev);
-    console.log(isModalOpen);
 
     return (
         <div>
@@ -125,6 +128,12 @@ const Header = () => {
                             >
                                 <FontAwesomeIcon icon={faFilePdf} />
                             </Link>
+                            <button
+                                onClick={toggleModal}
+                                className="social__link no__cursor"
+                            >
+                                <FontAwesomeIcon icon={faEnvelope} />
+                            </button>
                         </div>
                     </div>
                 </header>

@@ -4,12 +4,10 @@ import Me from "../assets/MSH-Sketch.jpg";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const toggleModal = () => setIsModalOpen(prev => !prev);
+    const toggleModal = () => setIsModalOpen((prev) => !prev);
 
-    console.log(isModalOpen)
     // Side effect: add/remove class on body when modal changes
     useEffect(() => {
         if (isModalOpen) {
@@ -30,24 +28,19 @@ const Nav = () => {
                 </figure>
                 <ul className="nav__link--list">
                     <li className="nav__link click">
-                        <Link to="/"
-                            className="nav__link--anchor link__hover-effect link__hover-effect--black"
+                        <Link
+                            to="/"
+                            className="nav__link--anchor link__hover-effect link__hover-effect--white"
                         >
-                            About
+                            Home
                         </Link>
                     </li>
                     <li className="nav__link click">
-                        <Link to="/projects"
-                            className="nav__link--anchor link__hover-effect link__hover-effect--black">
+                        <Link
+                            to="/projects"
+                            className="nav__link--anchor link__hover-effect link__hover-effect--white"
+                        >
                             Projects
-                        </Link>
-                    </li>
-                    <li className="nav__link click">
-                        <Link to="/"
-                            className="nav__link--anchor link__hover-effect link__hover-effect--black"
-                            onClick={toggleModal}
-                        >
-                            Contact
                         </Link>
                     </li>
                 </ul>

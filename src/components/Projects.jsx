@@ -55,8 +55,7 @@ const Projects = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const toggleModal = () => setIsModalOpen(prev => !prev);
-    console.log(isModalOpen);
+    const toggleModal = () => setIsModalOpen((prev) => !prev);
 
     // Side effect: add/remove class on body when modal changes
     useEffect(() => {

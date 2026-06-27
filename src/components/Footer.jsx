@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import MSH from "../assets/MSH Logo.ico";
-import Resume from '../assets/FES Resume MSH.pdf';
+import Resume from "../assets/FES Resume MSH.pdf";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 const Footer = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,31 +32,34 @@ const Footer = () => {
                         <img src={MSH} className="footer__logo--img" />
                     </figure>
                     <div className="footer__social--list">
-                        <Link to="https://www.GitHub.com"
+                        <Link
+                            to="https://www.GitHub.com"
                             target="_blank"
-                            className="footer__social--link link__hover-effect link__hover-effect--white"
+                            className="nav__link--anchor link__hover-effect link__hover-effect--white"
                         >
                             GitHub
                         </Link>
-                        <Link to="https://linkedIn.com"
+                        <Link
+                            to="https://linkedIn.com"
                             target="_blank"
-                            className="footer__social--link link__hover-effect link__hover-effect--white"
+                            className="nav__link--anchor link__hover-effect link__hover-effect--white"
                         >
                             LinkedIn
                         </Link>
-                        <Link to="/"
-                            className="footer__social--link link__hover-effect link__hover-effect--white"
-                            onClick={toggleModal}
-                        >
-                            Contact
-                        </Link>
-                        <Link to={Resume}
+                        <Link
+                            to={Resume}
                             target="_blank"
-                            className="footer__social--link link__hover-effect link__hover-effect--white"
+                            className="nav__link--anchor link__hover-effect link__hover-effect--white"
                             download
                         >
                             Resume
                         </Link>
+                        <button
+                            className="mail__btn click"
+                            onClick={toggleModal}
+                        >
+                            <FontAwesomeIcon icon={faEnvelope} />
+                        </button>
                     </div>
                     <div className="footer__copyright">
                         Copyright © 2026 Manji S Hirani
