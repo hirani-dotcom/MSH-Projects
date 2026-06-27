@@ -14,7 +14,8 @@ import Circle from "../assets/circle.svg";
 import SemiCircle from "../assets/semi circle.svg";
 import Squiggly from "../assets/squiggly.svg";
 import Triangle from "../assets/triangle.svg";
-import Resume from '../assets/FES Resume MSH.pdf';
+import Resume from "../assets/FES Resume MSH.pdf";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     // Handler for mouse movement
@@ -72,10 +73,6 @@ const Header = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    function toggleModal() {
-        setIsModalOpen((prev) => !prev);
-    }
-
     // Side effect: add/remove class on body when modal changes
     useEffect(() => {
         if (isModalOpen) {
@@ -87,6 +84,9 @@ const Header = () => {
         // Cleanup on unmount
         return () => document.body.classList.remove("modal--open");
     }, [isModalOpen]);
+
+    const toggleModal = () => setIsModalOpen((prev) => !prev);
+    console.log(isModalOpen);
 
     return (
         <div>
@@ -104,26 +104,27 @@ const Header = () => {
                             <b className="purple">about me.</b>
                         </p>
                         <div className="social__list">
-                            <a
-                                href="https://www.linkedin.com"
+                            <Link
+                                to="https://www.linkedin.com"
                                 target="_blank"
                                 className="social__link click"
                             >
                                 <FontAwesomeIcon icon={faLinkedin} />
-                            </a>
-                            <a
-                                href="https://www.github.com"
+                            </Link>
+                            <Link
+                                to="https://www.github.com"
                                 target="_blank"
                                 className="social__link click"
                             >
                                 <FontAwesomeIcon icon={faGithub} />
-                            </a>
-                            <a
-                                href={Resume}                                target="_blank"
+                            </Link>
+                            <Link
+                                to={Resume}
+                                target="_blank"
                                 className="social__link no__cursor"
                             >
                                 <FontAwesomeIcon icon={faFilePdf} />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </header>
@@ -201,11 +202,13 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="modal__half modal__contact">
-                        <FontAwesomeIcon
-                            icon={faTimes}
-                            className="modal__exit click"
-                            onClick={toggleModal}
-                        />
+                        <Link to="/">
+                            <FontAwesomeIcon
+                                icon={faTimes}
+                                className="modal__exit click"
+                                onClick={toggleModal}
+                            />
+                        </Link>
                         <h3 className="modal__title modal__title--contact">
                             Let's have a chat . . .
                         </h3>
@@ -261,7 +264,7 @@ const Header = () => {
                             <FontAwesomeIcon
                                 icon={faTimes}
                                 className="modal__exit click"
-                                onClick={toggleModal}
+                                onClick={() => setIsModalOpen(false)}
                             />
                             Thank you for your message! <br />
                             <br />

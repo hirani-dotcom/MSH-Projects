@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactDom from "react-dom/client";
 import Me from "../assets/MSH-Sketch.jpg";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
 
-     const navigate = useNavigate();
-    
-        const toProjects = () => {
-            navigate("/projects");
-        };
-
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    function toggleModal() {
-        setIsModalOpen((prev) => !prev);
-    }
+    const toggleModal = () => setIsModalOpen(prev => !prev);
 
+    console.log(isModalOpen)
     // Side effect: add/remove class on body when modal changes
     useEffect(() => {
         if (isModalOpen) {
@@ -37,29 +30,25 @@ const Nav = () => {
                 </figure>
                 <ul className="nav__link--list">
                     <li className="nav__link click">
-                        <a
-                            href="/"
+                        <Link to="/"
                             className="nav__link--anchor link__hover-effect link__hover-effect--black"
                         >
                             About
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav__link click">
-                        <button
-                            href="/"
-                            className="nav__link--anchor link__hover-effect link__hover-effect--black" onClick={toProjects}
-                        >
+                        <Link to="/projects"
+                            className="nav__link--anchor link__hover-effect link__hover-effect--black">
                             Projects
-                        </button>
+                        </Link>
                     </li>
                     <li className="nav__link click">
-                        <button
-                            href="/"
+                        <Link to="/"
                             className="nav__link--anchor link__hover-effect link__hover-effect--black"
                             onClick={toggleModal}
                         >
                             Contact
-                        </button>
+                        </Link>
                     </li>
                 </ul>
             </nav>

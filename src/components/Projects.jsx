@@ -20,7 +20,7 @@ import {
     faSpinner,
     faLink,
 } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
     function contact(event) {
@@ -55,9 +55,8 @@ const Projects = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    function toggleModal() {
-        setIsModalOpen((prev) => !prev);
-    }
+    const toggleModal = () => setIsModalOpen(prev => !prev);
+    console.log(isModalOpen);
 
     // Side effect: add/remove class on body when modal changes
     useEffect(() => {
@@ -70,24 +69,6 @@ const Projects = () => {
         // Cleanup on unmount
         return () => document.body.classList.remove("modal--open");
     }, [isModalOpen]);
-
-    const navigate = useNavigate();
-
-    const toMovies = () => {
-        navigate("/movies");
-    };
-
-    const toSpotify = () => {
-        navigate("/spotify");
-    };
-
-    const toNetflix = () => {
-        navigate("/netflix");
-    };
-
-    const toLibrary = () => {
-        navigate("/library");
-    };
 
     return (
         <div>
@@ -102,50 +83,46 @@ const Projects = () => {
                             <div className="project__summary--img">
                                 <div className="thumbnail__wrapper">
                                     <div className="thumbnail__wrapper--bg">
-                                        <a href="/spotify">
+                                        <Link to="/spotify">
                                             <img
                                                 className="project__img"
                                                 src={Spotify}
                                                 alt="Project"
-                                                onClick={toSpotify}
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="thumbnail__wrapper">
                                     <div className="thumbnail__wrapper--bg">
-                                        <a href="/movies">
+                                        <Link to="/movies">
                                             <img
                                                 className="project__img"
                                                 src={Movies}
                                                 alt="Project"
-                                                onClick={toMovies}
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="thumbnail__wrapper">
                                     <div className="thumbnail__wrapper--bg">
-                                        <a href="/netflix">
+                                        <Link to="/netflix">
                                             <img
                                                 className="project__img"
                                                 src={Netflix}
                                                 alt="Project"
-                                                onClick={toNetflix}
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="thumbnail__wrapper">
                                     <div className="thumbnail__wrapper--bg">
-                                        <a href="/library">
+                                        <Link to="/library">
                                             <img
                                                 className="project__img"
                                                 src={Library}
                                                 alt="Project"
-                                                onClick={toLibrary}
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

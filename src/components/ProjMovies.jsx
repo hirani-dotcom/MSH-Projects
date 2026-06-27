@@ -9,15 +9,9 @@ import {
     faJava,
     faReact,
 } from "@fortawesome/free-brands-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProjMovies = () => {
-    const navigate = useNavigate();
-
-    const toProjects = () => {
-        navigate("/projects");
-    };
-
     function contact(event) {
         // Component state for modal visibility
         const [loadingVisible, setLoadingVisible] = useState(false);
@@ -75,11 +69,12 @@ const ProjMovies = () => {
                             <div className="project__wrapper--bg"></div>
                             <img src={Movies} alt="" className="project__img" />
                             <div className="project__description">
-                                <FontAwesomeIcon
-                                    icon={faTimes}
-                                    className="modal__exit click"
-                                    onClick={toProjects}
-                                />
+                                <Link to="/projects">
+                                    <FontAwesomeIcon
+                                        icon={faTimes}
+                                        className="modal__exit click"
+                                    />
+                                </Link>
                                 <h3 className="project__description--title">
                                     Movies Search App
                                 </h3>
@@ -185,11 +180,12 @@ const ProjMovies = () => {
                         </div>
                     </div>
                     <div className="modal__half modal__contact">
-                        <FontAwesomeIcon
-                            icon={faTimes}
-                            className="modal__exit click"
-                            onClick={toggleModal}
-                        />
+                        <Link to="/projects">
+                            <FontAwesomeIcon
+                                icon={faTimes}
+                                className="modal__exit click"
+                            />
+                        </Link>
                         <h3 className="modal__title modal__title--contact">
                             Let's have a chat . . .
                         </h3>
